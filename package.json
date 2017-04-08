@@ -1,11 +1,33 @@
 {
   "name": "image-search",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "dotenv": "^4.0.0",
+    "bing-search-api": "^0.0.4",
+    "mongodb": "^2.2.25",
+    "imgur-node-api": "^0.1.0",
+    "mongoose": "^4.9.3",
+    "request": "^2.81.0",
+    "mongod": "^2.0.0",
+    "node-bing-api": "^3.2.1",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmaddp1995/image-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nmaddp1995/image-search/issues"
+  },
+  "homepage": "https://github.com/nmaddp1995/image-search#readme",
+  "description": ""
 }
