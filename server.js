@@ -22,19 +22,32 @@ var getImage = function(search, page) {
     // console.log(options);
     function getPics(err, response, body) {
       if (!err && response.statusCode == 200) {
-        body = body.data.filter(image => {
-          if (!image.is_album) {
-            return image;
-          }
-        }).map(image => {
-          return {
-            url: image.link,
-            snippet: image.title,
-            context: `https://imgur.com/${image.id}`
-          };
-        });
+        // body = body.data.filter(image => {
+        //   if (!image.is_album) {
+        //     return image;
+        //   }
+        // }).map(image => {
+        //   return {
+        //     url: image.link,
+        //     snippet: image.title,
+        //     context: `https://imgur.com/${image.id}`
+        //   };
+        // });
         // console.log(body);
-        resolve(body)
+        // resolve(body);
+        // console.log(body.data[0]);
+        var result = [];
+        for(var i=0;i<body.data.length;i++){
+          if(body.data[i].is_album) continue;
+          var tmp = {
+            url : body.data[i].link,
+            snippet : body.data[i].title,
+            context : 'https://imgur.com/'+body.data[i].id
+          }
+          result.push(tmp)
+        }
+        resolve(result);
+        // console.log(result);
       }
     }
     request(options, getPics);
